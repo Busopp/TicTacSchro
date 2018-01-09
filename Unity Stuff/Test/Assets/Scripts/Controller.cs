@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/*
+
+*/
 public class Controller : MonoBehaviour {
 	/* An array of 'Space' objects to store board state*/
 	public Space[] spaces;
