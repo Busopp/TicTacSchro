@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /*
 
@@ -93,7 +94,18 @@ public class Controller : MonoBehaviour {
         Debug.Log("Got here");
         if (result == Model.TurnResult.XWON)
         {
+            Debug.Log("X Wins");
+            //Scene change
+            SceneManager.LoadScene("Win Screen");
+        }
+        if (result == Model.TurnResult.OWON)
+        {
             Debug.Log("O Wins");
+            SceneManager.LoadScene("Win Screen");
+        }
+        if (result == Model.TurnResult.NORMAL)
+        {
+            Debug.Log("Nothing");
         }
     }
 

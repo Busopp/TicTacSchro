@@ -82,11 +82,200 @@ public class Model{
     public Model.TurnResult checkWin()
     {
         if (checkXWins()) { return Model.TurnResult.XWON; }
-
-        return Model.TurnResult.OWON;
+        if (checkOWins()) { return Model.TurnResult.OWON; }
+        return Model.TurnResult.NORMAL;
     }
 
     public bool checkXWins()
+    {
+        Space.Side Sym = Space.Side.O;
+        Space.Side Empty = Space.Side.NONE;
+        int j = 0;
+        //Check row 1
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+                
+            }
+        }
+        if (j == 104 || j == 203 || j==302 || j== 401 || j==500) { return true; }
+
+        j = 0;
+        //Check row 2
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
+        //Check row 3
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
+        //Check row 4
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
+        //Check row 5
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check Columns
+        //Check col 1
+        j = 0;
+        for (int i = 0; i < 25; i+=5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 2
+        j = 0;
+        for (int i = 1; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 3
+        j = 0;
+        for (int i = 2; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 4
+        j = 0;
+        for (int i = 3; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 5
+        j = 0;
+        for (int i = 4; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check diagonal \
+        j = 0;
+        for (int i = 0; i < 25; i += 6)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check diagonal /
+        j = 0;
+        for (int i = 0; i < 21; i += 4)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+
+        return false;
+    }
+
+    public bool checkOWins()
     {
         Space.Side Sym = Space.Side.X;
         Space.Side Empty = Space.Side.NONE;
@@ -98,45 +287,180 @@ public class Model{
             {
                 if (!grid[i].Equals(Empty))
                 {
-                    j++;
-                    Debug.Log(j);
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
                 }
-                
+
             }
         }
-        if (j == 5) { return true; }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
         //Check row 2
-        for (int i = 5; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            if (!grid[i].Equals(Sym))
             {
-                return false;
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
             }
         }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
         //Check row 3
-        for (int i = 10; i < 15; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            if (!grid[i].Equals(Sym))
             {
-                return false;
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
             }
         }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
         //Check row 4
-        for (int i = 15; i < 20; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            if (!grid[i].Equals(Sym))
             {
-                return false;
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
             }
         }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        j = 0;
         //Check row 5
-        for (int i = 20; i < 25; i++)
+        for (int i = 0; i < 5; i++)
         {
-            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            if (!grid[i].Equals(Sym))
             {
-                return false;
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
             }
         }
-        return true;
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check Columns
+        //Check col 1
+        j = 0;
+        for (int i = 0; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 2
+        j = 0;
+        for (int i = 1; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 3
+        j = 0;
+        for (int i = 2; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 4
+        j = 0;
+        for (int i = 3; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check col 5
+        j = 0;
+        for (int i = 4; i < 25; i += 5)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check diagonal \
+        j = 0;
+        for (int i = 0; i < 25; i += 6)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+        //Check diagonal /
+        j = 0;
+        for (int i = 0; i < 21; i += 4)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    if (grid[i].Equals(Space.Side.UD)) { j++; } else { j += 100; }
+                }
+
+            }
+        }
+        if (j == 104 || j == 203 || j == 302 || j == 401 || j == 500) { return true; }
+
+
+        return false;
     }
 }

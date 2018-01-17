@@ -7,13 +7,13 @@ using UnityEngine.UI;
 public class SceneChanger : MonoBehaviour {
 
 	// Use this for initialization
-	public Button changeSceneButton;
+	//public Button changeSceneButton;
 	InputField player1Name;
 	
 	void Start () {
-		changeSceneButton = GetComponent<Button>();
-		//Button btn = changeSceneButton.GetComponent<Button>();
-		changeSceneButton.onClick.AddListener(ChangeScene);	
+        Button changeSceneButton = gameObject.GetComponent<Button>();
+        //Button btn = changeSceneButton.GetComponent<Button>();
+        changeSceneButton.onClick.AddListener(ChangeScene);
 	}
 	
 	// Update is called once per frame
