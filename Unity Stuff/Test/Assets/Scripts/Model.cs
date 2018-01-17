@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,13 +55,19 @@ public class Model{
 
 	/* Function called when a grid space is selected (with a mouse click) */
 	public Space.Side GetSide(int index) {
-		switch (grid [index]) {
+		switch (grid[index]) {
 		case Space.Side.NONE:
-			grid [index] = Space.Side.UD;
+			grid[index] = Space.Side.UD;
 			return Space.Side.UD;
 		case Space.Side.UD:
 			int result = RNGsus ();
-			return (result == 1) ? Space.Side.X : Space.Side.O;
+			if (result == 1) {
+                    grid[index] = Space.Side.X;
+                    return Space.Side.X;
+                } else {
+                    grid[index] = Space.Side.O;
+                    return Space.Side.O;
+                }
 
 		default:
 			return Space.Side.INV;
@@ -69,6 +76,67 @@ public class Model{
 
 	/* Returns 1 or 0 with a 50% chance*/
 	public int RNGsus() {
-		return Random.Range (0, 2);
+		return UnityEngine.Random.Range (0, 2);
 	}
+
+    public Model.TurnResult checkWin()
+    {
+        if (checkXWins()) { return Model.TurnResult.XWON; }
+
+        return Model.TurnResult.OWON;
+    }
+
+    public bool checkXWins()
+    {
+        Space.Side Sym = Space.Side.X;
+        Space.Side Empty = Space.Side.NONE;
+        int j = 0;
+        //Check row 1
+        for (int i = 0; i < 5; i++)
+        {
+            if (!grid[i].Equals(Sym))
+            {
+                if (!grid[i].Equals(Empty))
+                {
+                    j++;
+                    Debug.Log(j);
+                }
+                
+            }
+        }
+        if (j == 5) { return true; }
+        //Check row 2
+        for (int i = 5; i < 10; i++)
+        {
+            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            {
+                return false;
+            }
+        }
+        //Check row 3
+        for (int i = 10; i < 15; i++)
+        {
+            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            {
+                return false;
+            }
+        }
+        //Check row 4
+        for (int i = 15; i < 20; i++)
+        {
+            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            {
+                return false;
+            }
+        }
+        //Check row 5
+        for (int i = 20; i < 25; i++)
+        {
+            if (grid[i].Equals(Sym) || grid[i].Equals(Empty))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }

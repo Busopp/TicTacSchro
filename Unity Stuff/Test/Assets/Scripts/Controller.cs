@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,34 +53,48 @@ public class Controller : MonoBehaviour {
 		Button btn = space.button;
 		btn.onClick.AddListener (delegate {
 			Space.Side side = model.GetSide(int.Parse(space.name));
-
-			// TODO: change text to button images
-			string sideToDisplay;
+            
+            // TODO: change text to button images
+            string sideToDisplay;
 			switch (side) {
 			case Space.Side.UD:
 				sideToDisplay = "?";
+                checkWinState(sideToDisplay);
 				break;
 			case Space.Side.O:
 				sideToDisplay = "O";
 				space.SetInteractable(false);
-				break;
+                checkWinState(sideToDisplay);
+                break;
 			case Space.Side.X:
 				sideToDisplay = "X";
 				space.SetInteractable(false);
-				break;
+                checkWinState(sideToDisplay);
+                break;
 			default:
 				return;
 			}
 
 			btn.GetComponentInChildren<Text> ().text = sideToDisplay; 
 
-			/* Deselect button (to prevernt it from being highlighted) */
+			/* Deselect button (to prevent it from being highlighted) */
 			EventSystem.current.SetSelectedGameObject(null); 
 
 			model.EndTurn();
 			turn.text = ((model.p1sTurn)? model.playerOne : model.playerTwo) + "'s Turn";
 		});
 	}
-		
+
+    private void checkWinState(String placed)
+    {
+        //Debug.Log("Controller Works");
+        Model.TurnResult result;
+        result = model.checkWin();
+        Debug.Log("Got here");
+        if (result == Model.TurnResult.XWON)
+        {
+            Debug.Log("O Wins");
+        }
+    }
 
 }

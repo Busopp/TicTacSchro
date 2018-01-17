@@ -20,4 +20,9 @@ public class Space : MonoBehaviour
 		buttonText.text = "";
 		SetInteractable (true);
 	}
+
+    public Text GetText()
+    {
+        return buttonText;
+    }
 }
